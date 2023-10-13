@@ -207,16 +207,42 @@ class PhotoManager:
                 print(f"Error cropping the image: {e}")
 
 
-manager = PhotoManager("giant-image")
-manager.connect_to_url(
-    "https://images.alphacoders.com/601/601059.jpg")
-manager.to_base64()
-manager.from_base64()
-manager.compress_image(50)
-manager.save_image('/media/jsrwell/1234-5678/original-')
-manager.relative_crop(top=5, right=55, bottom=17, left=50)
-manager.save_croped_image("/media/jsrwell/1234-5678/face1-")
-manager.relative_crop(top=0, right=24, bottom=24, left=8)
-manager.save_croped_image("/media/jsrwell/1234-5678/face2-")
-manager.relative_crop(top=3, right=82, bottom=10, left=77)
-manager.save_croped_image("/media/jsrwell/1234-5678/face3-")
+# =============================================================================
+# ============================EXEMPLOS=DE=USO==================================
+# =============================================================================
+# Origem e destino da imagem
+# =============================================================================
+origin_image = "https://images.alphacoders.com/601/601059.jpg"
+save_path = "/media/jsrwell/1234-5678/"  # Insira o diretório destino da imagem
+
+# =============================================================================
+# Instância e conexão obtendo a imagem
+# =============================================================================
+photo_manager = PhotoManager("giant-image")
+photo_manager.connect_to_url(origin_image)
+
+# =============================================================================
+# Apenas para exemplo de conversão para base64 e retorno
+# =============================================================================
+photo_manager.to_base64()
+photo_manager.from_base64()
+
+# =============================================================================
+# Compreesõ em 50%
+# =============================================================================
+photo_manager.compress_image(50)
+
+# =============================================================================
+# Salvando a imagem original
+# =============================================================================
+photo_manager.save_image(f"{save_path}original-")
+
+# =============================================================================
+# Localizando as 3 faces com base na imagem original e salvando elas
+# =============================================================================
+photo_manager.relative_crop(top=5, right=55, bottom=17, left=50)
+photo_manager.save_croped_image(f"{save_path}face1-")
+photo_manager.relative_crop(top=0, right=24, bottom=24, left=8)
+photo_manager.save_croped_image(f"{save_path}face2-")
+photo_manager.relative_crop(top=3, right=82, bottom=10, left=77)
+photo_manager.save_croped_image(f"{save_path}face3-")

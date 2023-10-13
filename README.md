@@ -104,7 +104,7 @@ photo_manager.from_base64()
 photo_manager.compress_image(50)   
 
 # Salvando a imagem original
-photo_manager.save_imagef(f"{save_path}original-")
+photo_manager.save_image(f"{save_path}original-")
 
 # Localizando as 3 faces com base na imagem original e salvando elas
 photo_manager.relative_crop(top=5, right=55, bottom=17, left=50) 
