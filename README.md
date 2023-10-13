@@ -100,7 +100,7 @@ photo_manager.connect_to_url(origin_image)
 photo_manager.to_base64()  
 photo_manager.from_base64()
 
-# Compreesõ em 50%
+# Compreesão em 50%
 photo_manager.compress_image(50)   
 
 # Salvando a imagem original
